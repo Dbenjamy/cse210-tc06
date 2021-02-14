@@ -32,7 +32,6 @@ class Director:
             self (Director): an instance of Director.
         """
         self._get_name()
-        self._get_logic()
         while self._keep_playing:
             self._get_inputs()
             self._do_updates()
@@ -50,11 +49,6 @@ class Director:
             player = Player(name)
             self._roster.add_player(player)
             
-            
-    def _get_logic(self):
-      
-      #either create a new object or ask logic to create a new number
-      self._logic.choose_number()
     
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
