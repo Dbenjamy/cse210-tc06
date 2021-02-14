@@ -49,6 +49,15 @@ class Director:
             player = Player(name)
             self._roster.add_player(player)
             
+            
+    def _print_board(self):
+      """Sends the board to console to print out.
+      """
+        self._console._print_board(f"--------------------\n\
+                Player Matt: {self.roster.player_one.guess}, {self.roster.player_one.hint}\n\
+                Player John: {self.roster.player_two.guess}, {self.roster.player_two.hint}\n\
+                --------------------")
+            
     
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
