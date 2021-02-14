@@ -48,7 +48,7 @@ class Console:
         Returns:
             integer: The user's input as an integer.
         """
-        return int(input(prompt))
+        return input(prompt)
         
     def write(self, text):
         """Displays the winner text on the screen from director.
