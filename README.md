@@ -37,3 +37,6 @@ root                    (project root folder)
 * # TODO: Add your names and emails here
 
 Robbie Swanson
+Benjamin Davis
+Tyler Shellman
+Moses Diaz
