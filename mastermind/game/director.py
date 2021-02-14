@@ -64,6 +64,7 @@ class Director:
         # get next player's move
         player = self._roster.get_current()
         self._console.write(f"{player.player_name}'s turn:")
+
         guess = self._console.read_number("What is your next guess? ")
         #could send to player or logic. Who controls the numbers?
         self._roster.get_current().guess = guess
@@ -77,6 +78,7 @@ class Director:
         """
         player = self._roster.get_current()
         self._logic.check_number(str(player.guess))
+        self._roster.get_current().hint = self._logic.result
         self._move.as_string(str(self._roster.get_current().guess),str(self._roster.get_current().hint))
  
     def _do_outputs(self):
