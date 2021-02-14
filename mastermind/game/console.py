@@ -1,5 +1,5 @@
 import random
-
+from game.move import Move
 class Console:
     """A code template for a computer console. The responsibility of this 
     class of objects is to get text or numerical input and display text output.
@@ -77,3 +77,8 @@ class Console:
 Player {player_one.player_name}: {player_one.guess}, {player_one.hint}\n\
 Player {player_two.player_name}: {player_two.guess}, {player_two.hint}\n\
 --------------------")
+
+    def _print_history(self,past_moves):
+        for i in range(len(past_moves)):
+            numm = i + 1
+            print(past_moves[i],past_moves[numm])
