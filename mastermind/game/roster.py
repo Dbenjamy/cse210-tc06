@@ -1,4 +1,4 @@
-from game.player import player
+from game.player import Player
 
 class Roster:
     """
