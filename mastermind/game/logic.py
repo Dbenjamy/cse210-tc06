@@ -35,7 +35,6 @@ class Logic():
         self.result = []
         for i in range(4):
             #first loop will iterate through each location of the masterNum
-            print(i)
             inList = False # used for checking if each number guessed is in the masterNum list
             for x in range(4):
                 # second loop compares the digit i in masterNum with each digit in the guess
