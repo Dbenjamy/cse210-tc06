@@ -22,6 +22,11 @@ class Console:
         """
         
         return input(prompt)
+    
+    def player_board(self, prompt):
+      #Takes print statement from director and displays the game board.
+      
+      print(prompt)
       
       
     def blank_turn(self, prompt):
