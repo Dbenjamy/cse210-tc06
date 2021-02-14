@@ -48,8 +48,19 @@ class Console:
         Returns:
             integer: The user's input as an integer.
         """
-        return input(prompt)
-        
+        their_input = input(prompt)
+        if len(their_input) == 4:
+            try:
+                int(their_input)
+                return their_input
+            except ValueError:
+                print("Must be a four digit number.")
+                return self.read_number(prompt)
+        else:
+            print("Must be a four digit number.")
+            return self.read_number(prompt)
+
+
     def write(self, text):
         """Displays the winner text on the screen from director.
 
