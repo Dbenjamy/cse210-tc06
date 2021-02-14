@@ -58,3 +58,11 @@ class Console:
             text (string): The text to display.
         """
         print(text)
+
+
+    def _print_board(self,player_one,player_two):
+    
+        print(f"--------------------\n\
+Player {player_one.player_name}: {player_one.guess}, {player_one.hint}\n\
+Player {player_two.player_name}: {player_two.guess}, {player_two.hint}\n\
+--------------------")

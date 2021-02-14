@@ -21,7 +21,7 @@ class Director:
         """
         self._console = Console()
         self._keep_playing = True
-        self._move = None
+        self._move = Move()
         self._roster = Roster()
         self._logic = Logic()
         
@@ -50,14 +50,7 @@ class Director:
             self._roster.add_player(player)
             
             
-    def _print_board(self):
-      """Sends the board to console to print out.
-      """
-        self._console._print_board(f"--------------------\n\
-                Player Matt: {self.roster.player_one.guess}, {self.roster.player_one.hint}\n\
-                Player John: {self.roster.player_two.guess}, {self.roster.player_two.hint}\n\
-                --------------------")
-            
+
     
     def _get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
@@ -67,15 +60,13 @@ class Director:
             self (Director): An instance of Director.
         """
         # display the game board
-        board = self._logic.show_board()
-        self._console.write(board)
+        self._console._print_board(self._roster._the_roster[0],self._roster._the_roster[1])
         # get next player's move
         player = self._roster.get_current()
-        self._console.write(f"{player.get_name()}'s turn:")
+        self._console.write(f"{player.player_name}'s turn:")
         guess = self._console.read_number("What is your next guess? ")
-        move = Move(guess)
         #could send to player or logic. Who controls the numbers?
-        player.set_move(move)
+        self._roster.get_current().guess = guess
 
     def _do_updates(self):
         """Updates the important game information for each round of play. In 
@@ -85,8 +76,8 @@ class Director:
             self (Director): An instance of Director.
         """
         player = self._roster.get_current()
-        move = player.get_move()
-        self._logic.apply(move)
+        self._logic.check_number(str(player.guess))
+        self._move.as_string(str(self._roster.get_current().guess),str(self._roster.get_current().hint))
  
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -95,9 +86,8 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        if self._logic.game_over():
-            winner = self._roster.get_current()
-            name = winner.get_name()
-            self._console.write(f"\n{name} won!")
+        if self._roster.get_current().win:
+            winner = self._roster.get_current().player_name
+            print(f"\n{winner} won!")
             self._keep_playing = False
         self._roster.next_player()

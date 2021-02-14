@@ -12,7 +12,7 @@ class Roster:
 
     def __init__(self):
         self._turn = 0
-        self._maxTurn = 0
+        self._maxTurn = 1
         self._the_roster = []
 
 
@@ -24,7 +24,6 @@ class Roster:
             the_player: the player object being added.
         """
         self._the_roster.append(the_player)
-        self._maxTurn += 1
         
     def get_current(self):
         """
@@ -46,3 +45,4 @@ class Roster:
             self._turn += 1
         else:
             self._turn = 0
+
