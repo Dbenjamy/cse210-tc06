@@ -77,7 +77,7 @@ class Director:
             self (Director): An instance of Director.
         """
         player = self._roster.get_current()
-        self._logic.check_number(str(player.guess))
+        self._logic.check_number(str(player.guess), player)
         self._roster.get_current().hint = self._logic.result
         self._move.as_string(str(self._roster.get_current().guess),str(self._roster.get_current().hint))
  

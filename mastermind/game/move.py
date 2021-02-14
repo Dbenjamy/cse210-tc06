@@ -40,4 +40,4 @@ class Move():
         # adds the most recent guess and hint to the end of the list
         self.string_list.append(str(singleInt))
         self.string_list.append(string_hint)
-        ##print(self.string_list)
+        print(self.string_list[0], self.string_list[1])
